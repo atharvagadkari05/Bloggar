@@ -22,9 +22,13 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
   } from '@chakra-ui/icons';
+import {  useSetRecoilState } from 'recoil';
+import { authstatemodalAtom } from '../../chakra/atoms/authmodalGlobalatom';
+import AuthButtons from '../Buttons/authButtons';
   
   export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
+  const setauthstate = useSetRecoilState(authstatemodalAtom)
   
     return (
       <Box>
@@ -71,12 +75,14 @@ import {
             justify={'flex-end'}
             direction={'row'}
             spacing={6}>
-            <Button
+            {/* <Button
               as={'a'}
               fontSize={'sm'}
               fontWeight={400}
               variant={'link'}
-              href={'#'}>
+              href={'#'}
+              onClick={()=> setauthstate({open:true,view:"login"})}
+              >
               Sign In
             </Button>
             <Button
@@ -88,9 +94,15 @@ import {
             //   href={'#'}
               _hover={{
                 bg: 'pink.300',
-              }}>
+              }}
+              onClick={()=> {
+                setauthstate({open:true,view:"login"})
+              }}
+              >
               Sign Up
-            </Button>
+            </Button> */}
+
+            <AuthButtons/>
           </Stack>
         </Flex>
   
