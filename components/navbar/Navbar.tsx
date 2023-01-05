@@ -75,13 +75,13 @@ import AuthButtons from '../Buttons/authButtons';
             justify={'flex-end'}
             direction={'row'}
             spacing={6}>
-            {/* <Button
+            <Button
               as={'a'}
               fontSize={'sm'}
               fontWeight={400}
               variant={'link'}
               href={'#'}
-              onClick={()=> setauthstate({open:true,view:"login"})}
+              onClick={()=>setauthstate({open:true,view:"login"})}
               >
               Sign In
             </Button>
@@ -95,14 +95,12 @@ import AuthButtons from '../Buttons/authButtons';
               _hover={{
                 bg: 'pink.300',
               }}
-              onClick={()=> {
-                setauthstate({open:true,view:"login"})
-              }}
+              onClick={()=>setauthstate({open:true,view:"signup"})}
               >
               Sign Up
-            </Button> */}
+            </Button>
 
-            <AuthButtons/>
+            {/* <AuthButtons/> */}
           </Stack>
         </Flex>
   

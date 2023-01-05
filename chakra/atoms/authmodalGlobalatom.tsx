@@ -11,6 +11,6 @@ const defaultStateModal: AuthStateModal = {
 
 }
 export const authstatemodalAtom = atom<AuthStateModal>({
-key:"authstatemodal",
+key:"authstatemodalAtom",
 default:defaultStateModal
 })
