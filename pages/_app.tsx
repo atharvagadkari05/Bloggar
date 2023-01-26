@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import Layout from '../components/layout'
 import LandingPage from "./landing"
 import { RecoilRoot } from "recoil"
+import BlogPage from "./blogPage"
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -12,8 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
    <ChakraProvider theme={theme} >
     <Layout>
       <Component {...pageProps} />
-      <LandingPage/>
-    </Layout>
+  </Layout>
   </ChakraProvider>
   </RecoilRoot>
   ) 
