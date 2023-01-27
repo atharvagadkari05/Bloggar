@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app'
 import Layout from '../components/layout'
 import LandingPage from "./landing"
 import { RecoilRoot } from "recoil"
-import BlogPage from "./blogPage"
+import BlogPage from "./profile"
 
 
 export default function App({ Component, pageProps }: AppProps) {
