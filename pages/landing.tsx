@@ -48,7 +48,8 @@ export default function LandingPage() {
             align={'center'}
             alignSelf={'center'}
             position={'relative'}>
-        <Button
+      
+      <Button
               onClick={()=>{
                 router.push('/profile')
               }}
@@ -61,6 +62,7 @@ export default function LandingPage() {
               }}>
               Get Started
             </Button>
+      
           
             {/* <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
               Learn more

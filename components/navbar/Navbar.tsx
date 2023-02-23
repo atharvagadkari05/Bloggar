@@ -16,6 +16,7 @@ import {
     useDisclosure,
      
   } from '@chakra-ui/react';
+  import { useRouter } from 'next/router';
   import {
     HamburgerIcon,
     CloseIcon,
@@ -29,7 +30,7 @@ import AuthButtons from '../Buttons/authButtons';
   export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
   const setauthstate = useSetRecoilState(authstatemodalAtom)
-  
+  const navigate = useRouter()
     return (
       <Box>
         <Flex
@@ -56,7 +57,7 @@ import AuthButtons from '../Buttons/authButtons';
             />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Text
+           <Link href={"/landing"}> <Text
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
               color={useColorModeValue('gray.800', 'white')}
@@ -64,6 +65,7 @@ import AuthButtons from '../Buttons/authButtons';
               >
               Bloggar
             </Text>
+            </Link>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <DesktopNav />
@@ -81,7 +83,10 @@ import AuthButtons from '../Buttons/authButtons';
               fontWeight={400}
               variant={'link'}
               href={'#'}
-              onClick={()=>setauthstate({open:true,view:"login"})}
+              onClick={()=>{
+                navigate.push("/login")
+              }}
+              
               >
               Sign In
             </Button>
@@ -95,7 +100,9 @@ import AuthButtons from '../Buttons/authButtons';
               _hover={{
                 bg: 'pink.300',
               }}
-              onClick={()=>setauthstate({open:true,view:"signup"})}
+              onClick={()=>{
+                navigate.push("/signup")
+              }}
               >
               Sign Up
             </Button>

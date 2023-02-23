@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, CardHeader, CardBody, CardFooter,Image,Stack,Heading,Text,Divider,ButtonGroup,Button,Box } from '@chakra-ui/react'
 import { useSetRecoilState } from 'recoil'
-import { NewDocModal } from '../../chakra/atoms/NewdockAtom'
+// import { NewDocModal } from '../../chakra/atoms/NewdockAtom'
+import NewDocModal from '../modals/newDoc_modal'
 
 
 type Props = {}
 
 export default function ProfPage({}: Props) {
 
-  const  setRecoilState = useSetRecoilState(NewDocModal)
+  const [modal, setmodal] = useState(false)
+
   return (
    <>
 <Card maxW='sm'>
@@ -22,13 +24,15 @@ export default function ProfPage({}: Props) {
   <Divider />
   <CardFooter>
     <ButtonGroup alignItems='center' justifyContent='center' spacing='2'>
-      <Button onClick ={()=>setRecoilState({open:true})} variant='solid' colorScheme='blue'>
+      {/* <Button onClick={()=>setmodal(true)}  variant='solid' colorScheme='blue'>
       New Blog
-      </Button>
-    
+      </Button> */}
+    <NewDocModal variant ='solid' colorScheme='blue'/>
     </ButtonGroup>
   </CardFooter>
+
 </Card>
+
    </>
 
   )

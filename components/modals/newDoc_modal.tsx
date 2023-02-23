@@ -1,45 +1,53 @@
-import React from 'react'
-import { useRecoilState } from 'recoil';
-import {NewDocModal} from '../../chakra/atoms/NewdockAtom'
-export default newDoc_modal
-     import {
-        Modal,
-        ModalOverlay,
-        ModalContent,
-        ModalHeader,
-        ModalFooter,
-        ModalBody,
-        ModalCloseButton,
-        Button,
-        useDisclosure
-      } from '@chakra-ui/react'
-
-function newDoc_modal() {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const [modalstate, setmodalState] = useRecoilState(NewDocModal)
-    const handleclose = () => {
-        setmodalState((prev) => ({
-          ...prev,
-          open: false
-        }))
-      }
-  return (
-<> 
-<Modal onClose={handleclose} size='full' isOpen={modalstate.open}>
-      <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>Modal Title</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-      Helo
-        </ModalBody>
-        <ModalFooter>
-          <Button onClick={handleclose}>Close</Button>
-        </ModalFooter>
-      </ModalContent>
-    </Modal></>
-  )
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  Button,
+  Center
+} from '@chakra-ui/react'
+import MultiStepForm from '../Form/form'
+type NewDoc_variant_props = {
+  variant: any,
+  colorScheme : any 
 }
 
 
-    
+export default function NewdocModal(props:NewDoc_variant_props) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+
+
+  return (
+    <>
+        <Button
+          onClick={() => onOpen()}
+          variant = {props.variant}
+          colorScheme = {props.colorScheme}
+          key={'full'}
+          m={4}
+        >Open</Button>
+
+      <Modal onClose={onClose} size={'full'} isOpen={isOpen}>
+        <ModalOverlay />
+        <ModalContent alignContent={"center"} justifyContent={"center"}>
+          {/* <Center bg='tomato' h='100px' color='white'> */}
+          <ModalHeader  p={10}>Create New Blog</ModalHeader>
+          {/* </Center> */}
+   
+          <ModalCloseButton />
+          <ModalBody>
+         <MultiStepForm/>
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  )
+}
