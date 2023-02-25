@@ -18,8 +18,11 @@ import {
   FormHelperText,
   InputRightElement,
 } from '@chakra-ui/react';
+import Tags from '../tags/tags'
 
 import { useToast } from '@chakra-ui/react';
+
+const colorcode:String[] = ['green', 'blue', 'red', 'yellow']
 
 const Form1 = () => {
   const [show, setShow] = React.useState(false);
@@ -27,45 +30,53 @@ const Form1 = () => {
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
-        Write a Blog
+     Create a New Blog
       </Heading>
       <Flex>
         <FormControl mr="5%">
           <FormLabel htmlFor="Title" fontWeight={'normal'}>
             Title
           </FormLabel>
-          <Input id="first-name" placeholder="Enter title" />
+          <Input id="first-name" placeholder="Enter Title" />
         </FormControl>
 
       </Flex>
       <FormControl mt="2%">
         <FormLabel htmlFor="email" fontWeight={'normal'}>
-          Email address
+          Enter your content
         </FormLabel>
-        <Textarea id="blog" />
-        <FormHelperText>Write,paste your blog here.</FormHelperText>
+        {/* <Input id="email" type="email" /> */}
+        <Textarea></Textarea>
+        <FormHelperText>btw It's a resizable text box.</FormHelperText>
       </FormControl>
 
-      <FormControl>
-       
+      {/* <FormControl>
+        <FormLabel htmlFor="password" fontWeight={'normal'} mt="2%">
+          Password
+        </FormLabel>
+        <InputGroup size="md">
+          <Input
+            pr="4.5rem"
+            type={show ? 'text' : 'password'}
+            placeholder="Enter password"
+          />
           <InputRightElement width="4.5rem">
             <Button h="1.75rem" size="sm" onClick={handleClick}>
               {show ? 'Hide' : 'Show'}
             </Button>
           </InputRightElement>
-      
-      </FormControl>
+        </InputGroup>
+      </FormControl> */}
     </>
   );
 };
-
 const Form2 = () => {
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
-        User Details
+       Enter Details
       </Heading>
-      <FormControl as={GridItem} colSpan={[6, 3]}>
+      {/* <FormControl as={GridItem} colSpan={[6, 3]}>
         <FormLabel
           htmlFor="country"
           fontSize="sm"
@@ -76,7 +87,7 @@ const Form2 = () => {
           }}>
           Country / Region
         </FormLabel>
-        <Select
+        <Select                // Country part
           id="country"
           name="country"
           autoComplete="country"
@@ -90,8 +101,11 @@ const Form2 = () => {
           <option>Canada</option>
           <option>Mexico</option>
         </Select>
-      </FormControl>
-
+      </FormControl> */}
+       
+        {colorcode.map((e)=>(
+           <Tags  colorScheme={e}/>
+        ))}
       <FormControl as={GridItem} colSpan={6}>
         <FormLabel
           htmlFor="street_address"
@@ -102,7 +116,7 @@ const Form2 = () => {
             color: 'gray.50',
           }}
           mt="2%">
-          Street address
+          Tags
         </FormLabel>
         <Input
           type="text"

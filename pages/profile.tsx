@@ -19,8 +19,7 @@ export default function ProfPage({}: Props) {
   <GridItem w='100%' h='10'><Blogcard/></GridItem>
   <GridItem w='100%' h='10'><Blogcard/></GridItem>
   <GridItem w='100%' h='10'><Blogcard/></GridItem>
-  <GridItem w='100%' h='10'><Blogcard/></GridItem>
-  <GridItem w='100%' h='10'><Blogcard/></GridItem>
+
 </Grid>
 </>
   )
