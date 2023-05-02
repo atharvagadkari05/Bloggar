@@ -16,6 +16,7 @@ import {
   } from '@chakra-ui/react';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { signInwithGoogle } from '../firebase/firebaseclient';
   
   export default function SignupCard() {
     const [showPassword, setShowPassword] = useState(false);
@@ -41,7 +42,7 @@ import {
             boxShadow={'lg'}
             p={8}>
             <Stack spacing={4}>
-              <HStack>
+              {/* <HStack>
                 <Box>
                   <FormControl id="firstName" isRequired>
                     <FormLabel>First Name</FormLabel>
@@ -54,8 +55,8 @@ import {
                     <Input type="text" />
                   </FormControl>
                 </Box>
-              </HStack>
-              <FormControl id="email" isRequired>
+              </HStack> */}
+              {/* <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
                 <Input type="email" />
               </FormControl>
@@ -73,9 +74,10 @@ import {
                     </Button>
                   </InputRightElement>
                 </InputGroup>
-              </FormControl>
+              </FormControl> */}
               <Stack spacing={10} pt={2}>
                 <Button
+                onClick={signInwithGoogle}
                   loadingText="Submitting"
                   size="lg"
                   bg={'blue.400'}
@@ -83,13 +85,13 @@ import {
                   _hover={{
                     bg: 'blue.500',
                   }}>
-                  Sign up
+                  Sign in with Google
                 </Button>
               </Stack>
               <Stack pt={6}>
-                <Text align={'center'}>
+                {/* <Text align={'center'}>
                   Already a user? <Link href={"/login"} color={'blue.400'}>Login</Link>
-                </Text>
+                </Text> */}
               </Stack>
             </Stack>
           </Box>

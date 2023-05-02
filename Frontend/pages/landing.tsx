@@ -51,7 +51,7 @@ export default function LandingPage() {
       
       <Button
               onClick={()=>{
-                router.push('/profile')
+                router.push('/dashboard/profile')
               }}
               colorScheme={'green'}
               bg={'green.400'}

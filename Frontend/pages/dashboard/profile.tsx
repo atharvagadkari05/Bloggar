@@ -1,8 +1,8 @@
 import React from 'react'
-import NewDoc from '../components/cards/newDoc'
+import NewDoc from '../../components/cards/newDoc'
 import { useRouter } from 'next/router'
 import { Flex, Grid, GridItem } from '@chakra-ui/react'
-import Blogcard from '../components/cards/blogcard'
+import Blogcard from '../../components/cards/blogcard'
 
 
 type Props = {}

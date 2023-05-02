@@ -77,19 +77,7 @@ import AuthButtons from '../Buttons/authButtons';
             justify={'flex-end'}
             direction={'row'}
             spacing={6}>
-            <Button
-              as={'a'}
-              fontSize={'sm'}
-              fontWeight={400}
-              variant={'link'}
-              href={'#'}
-              onClick={()=>{
-                navigate.push("/login")
-              }}
-              
-              >
-              Sign In
-            </Button>
+         
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
