@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { useRouter } from 'next/router'
 import {
   Box,
   Heading,
@@ -12,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 
 export default function LandingPage() {
+  const router = useRouter()
   return (
     <>
       <Head>
@@ -46,7 +48,11 @@ export default function LandingPage() {
             align={'center'}
             alignSelf={'center'}
             position={'relative'}>
-            <Button
+      
+      <Button
+              onClick={()=>{
+                router.push('/dashboard/profile')
+              }}
               colorScheme={'green'}
               bg={'green.400'}
               rounded={'full'}
@@ -56,6 +62,8 @@ export default function LandingPage() {
               }}>
               Get Started
             </Button>
+      
+          
             {/* <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
               Learn more
             </Button> */}
