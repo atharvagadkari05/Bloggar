@@ -15,7 +15,7 @@ import {
   useBreakpointValue,
   useDisclosure,
   HStack,
-  Links,
+  Link,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import {
