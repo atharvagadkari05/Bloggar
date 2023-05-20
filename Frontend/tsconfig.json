@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/authmodal.tsx", "pages/middleware.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/authmodal.tsx", "pages/middleware.ts", "services/authservice.js", "hooks/auth.js", "hooks/route.tsx"],
   "exclude": ["node_modules"]
 }

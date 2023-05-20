@@ -19,20 +19,23 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { auth, provider } from "../firebase/firebaseclient";
 import { signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import useAuth from "../hooks/auth";
+import { withPublic } from "../hooks/route";
 
-export default function SignupCard() {
+ function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   //@ts-ignore
-  const signInwithGoogle = async () => {
-    const { user } = await signInWithPopup(auth, provider);
-    const { refreshToken, providerData } = user;
+  // const signInwithGoogle = async () => {
+  //   const { user } = await signInWithPopup(auth, provider);
+  //   const { refreshToken, providerData } = user;
 
-    localStorage.setItem("user", JSON.stringify(providerData));
-    localStorage.setItem("accessToken", JSON.stringify(refreshToken));
+  //   localStorage.setItem("user", JSON.stringify(providerData));
+  //   localStorage.setItem("accessToken", JSON.stringify(refreshToken));
 
-    router.push("/dashboard/profile");
-  };
+  //   router.push("/dashboard/profile");
+  // };
+  const {user , loginWithGoogle ,error} = useAuth()
 
   return (
     <Flex
@@ -91,8 +94,9 @@ export default function SignupCard() {
                 </InputGroup>
               </FormControl> */}
             <Stack spacing={10} pt={2}>
+            
               <Button
-                onClick={signInwithGoogle}
+                onClick={loginWithGoogle}
                 loadingText="Submitting"
                 size="lg"
                 bg={"blue.400"}
@@ -115,3 +119,6 @@ export default function SignupCard() {
     </Flex>
   );
 }
+
+
+export default withPublic(Signup)
