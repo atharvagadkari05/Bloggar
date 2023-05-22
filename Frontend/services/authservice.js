@@ -6,7 +6,7 @@ import {
 	signOut,
 	onAuthStateChanged,
 } from "firebase/auth";
-import {auth} from "../firebase/firebaseclient"
+import { auth }  from "../firebase/firebaseclient"
 
 class AuthService {
 	constructor(firebaseApp) {
@@ -36,6 +36,12 @@ class AuthService {
 		await signOut(this.auth);
 	}
 }
+
+
+
+
+
+
 
 export default new AuthService(getApp());
 

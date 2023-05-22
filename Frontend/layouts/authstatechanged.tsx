@@ -4,6 +4,7 @@ import firebase from "firebase/app";
 import "firebase/auth"
 import useAuth from "../hooks/auth";
 import AuthService from "../services/authservice";
+import { Center,Spinner } from '@chakra-ui/react';
 
 //@ts-ignore
 export default function AuthStateChanged({ children }) {
@@ -20,7 +21,12 @@ export default function AuthStateChanged({ children }) {
 	}, []);
 
 	if (loading) {
-		return <h1>Loading...</h1>;
+		return (
+			<Center>
+				<Spinner size='xl' />	
+			</Center>
+			
+		);
 	}
 
 	return children;

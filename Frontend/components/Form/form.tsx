@@ -17,8 +17,12 @@ import {
   Textarea,
   FormHelperText,
   InputRightElement,
+  Icon,
 } from '@chakra-ui/react';
 import Tags from '../tags/tags'
+
+import { FaSmile } from "react-icons/fa" // Replace "FaSmile" with the appropriate emoji icon from the chosen icon library
+
 
 import { useToast } from '@chakra-ui/react';
 
@@ -30,12 +34,13 @@ const Form1 = () => {
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
-     Create a New Blog
+    Let's Start <Icon as={FaSmile } boxSize={6} /> 
+
       </Heading>
       <Flex>
         <FormControl mr="5%">
           <FormLabel htmlFor="Title" fontWeight={'normal'}>
-            Title
+            *Title
           </FormLabel>
           <Input id="first-name" placeholder="Enter Title" />
         </FormControl>
@@ -43,7 +48,7 @@ const Form1 = () => {
       </Flex>
       <FormControl mt="2%">
         <FormLabel htmlFor="email" fontWeight={'normal'}>
-          Enter your content
+          *Introduction to the Blog
         </FormLabel>
         {/* <Input id="email" type="email" /> */}
         <Textarea></Textarea>
@@ -103,107 +108,16 @@ const Form2 = () => {
         </Select>
       </FormControl> */}
        
-        {colorcode.map((e)=>(
+        {/* {colorcode.map((e)=>(
            <Tags  colorScheme={e}/>
-        ))}
-      <FormControl as={GridItem} colSpan={6}>
-        <FormLabel
-          htmlFor="street_address"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}
-          mt="2%">
-          Tags
+        ))} */}
+     <FormControl mt="2%">
+        <FormLabel htmlFor="email" fontWeight={'normal'}>
+          *Blog Content:
         </FormLabel>
-        <Input
-          type="text"
-          name="street_address"
-          id="street_address"
-          autoComplete="street-address"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={[6, 6, null, 2]}>
-        <FormLabel
-          htmlFor="city"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}
-          mt="2%">
-          City
-        </FormLabel>
-        <Input
-          type="text"
-          name="city"
-          id="city"
-          autoComplete="city"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={[6, 3, null, 2]}>
-        <FormLabel
-          htmlFor="state"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}
-          mt="2%">
-          State / Province
-        </FormLabel>
-        <Input
-          type="text"
-          name="state"
-          id="state"
-          autoComplete="state"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
-      </FormControl>
-
-      <FormControl as={GridItem} colSpan={[6, 3, null, 2]}>
-        <FormLabel
-          htmlFor="postal_code"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}
-          mt="2%">
-          ZIP / Postal
-        </FormLabel>
-        <Input
-          type="text"
-          name="postal_code"
-          id="postal_code"
-          autoComplete="postal-code"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md"
-        />
+        {/* <Input id="email" type="email" /> */}
+        <Textarea></Textarea>
+        <FormHelperText>Currently Images are not supported.</FormHelperText>
       </FormControl>
     </>
   );
@@ -224,18 +138,10 @@ const Form3 = () => {
             _dark={{
               color: 'gray.50',
             }}>
-            Website
+            *Website/Social Media Profile:
           </FormLabel>
           <InputGroup size="sm">
-            <InputLeftAddon
-              bg="gray.50"
-              _dark={{
-                bg: 'gray.800',
-              }}
-              color="gray.500"
-              rounded="md">
-              http://
-            </InputLeftAddon>
+         
             <Input
               type="tel"
               placeholder="www.example.com"
@@ -253,7 +159,7 @@ const Form3 = () => {
             _dark={{
               color: 'gray.50',
             }}>
-            About
+            About the blog ( Links or references)
           </FormLabel>
           <Textarea
             placeholder="you@example.com"
