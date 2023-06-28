@@ -1,10 +1,7 @@
 import React from 'react';
 import { Button } from '@chakra-ui/react';
-import { useSetRecoilState } from 'recoil';
-import { authstatemodalAtom } from '../../chakra/atoms/authmodalGlobalatom';
 const AuthButtons:React.FC = () => {
 
-    const setauthstate = useSetRecoilState(authstatemodalAtom)
     
     return (
 
@@ -15,7 +12,7 @@ const AuthButtons:React.FC = () => {
               fontWeight={400}
               variant={'link'}
               href={'#'}
-              onClick={()=> setauthstate({open:true,view:"login"})}
+         
               >
               Sign In
             </Button>
@@ -29,9 +26,7 @@ const AuthButtons:React.FC = () => {
               _hover={{
                 bg: 'pink.300',
               }}
-              onClick={()=> {
-                setauthstate({open:true,view:"login"})
-              }}
+        
               >
               Sign Up
             </Button></>

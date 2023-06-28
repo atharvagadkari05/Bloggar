@@ -1,11 +1,17 @@
 const BlogModel = require('../models/blogModel')
+const Express = require('express')
+const app = Express()
 
 
+app.use(Express.json())
 const BlogpostHandler = async (req,res)=>{
-var newblog = new Blog({
+
+
+var newblog = new BlogModel({
     title : req.body.title,
+    intro:req.body.intro,
     content :req.body.content,
-    intro:req.body.intro
+
 })
 
 await newblog.save().then(()=>{
@@ -19,6 +25,6 @@ await newblog.save().then(()=>{
         "message":err
     })
 })
-}
+ }
 
 module.exports = {BlogpostHandler}

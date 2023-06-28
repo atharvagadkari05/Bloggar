@@ -5,9 +5,11 @@ const blogSchema = new Schema({
     // String is shorthand for {type: String}
     title:  String,
     intro: String,
+    content: String,
+    website: String,
+    
     date: { type: Date, default: Date.now },
-    content:   String,
-
+    
  });
 
  let Blog = mongoose.model('Blog', blogSchema)

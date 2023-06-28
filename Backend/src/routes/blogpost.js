@@ -2,6 +2,6 @@ const Express = require('express')
 const controller = require('../controllers/blogpost')
 const router = Express.Router()
 
-router.get('/', controller.BlogpostHandler)
+router.post('/', Express.json(), controller.BlogpostHandler)
 
 module.exports = router

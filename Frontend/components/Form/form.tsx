@@ -30,6 +30,8 @@ const colorcode:String[] = ['green', 'blue', 'red', 'yellow']
 
 const Form1 = () => {
   const [show, setShow] = React.useState(false);
+ 
+
   const handleClick = () => setShow(!show);
   return (
     <>
@@ -42,7 +44,9 @@ const Form1 = () => {
           <FormLabel htmlFor="Title" fontWeight={'normal'}>
             *Title
           </FormLabel>
-          <Input id="first-name" placeholder="Enter Title" />
+          <Input value={title} 
+                 onChange = {(e)=> setTitle(e.target.value)}
+                 id="first-name" placeholder="Enter Title" />
         </FormControl>
 
       </Flex>
@@ -51,27 +55,12 @@ const Form1 = () => {
           *Introduction to the Blog
         </FormLabel>
         {/* <Input id="email" type="email" /> */}
-        <Textarea></Textarea>
+        <Textarea value={intro} 
+                 onChange = {(e)=> setIntro(e.target.value)}></Textarea>
         <FormHelperText>btw It's a resizable text box.</FormHelperText>
       </FormControl>
 
-      {/* <FormControl>
-        <FormLabel htmlFor="password" fontWeight={'normal'} mt="2%">
-          Password
-        </FormLabel>
-        <InputGroup size="md">
-          <Input
-            pr="4.5rem"
-            type={show ? 'text' : 'password'}
-            placeholder="Enter password"
-          />
-          <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? 'Hide' : 'Show'}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-      </FormControl> */}
+     
     </>
   );
 };
@@ -81,42 +70,16 @@ const Form2 = () => {
       <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
        Enter Details
       </Heading>
-      {/* <FormControl as={GridItem} colSpan={[6, 3]}>
-        <FormLabel
-          htmlFor="country"
-          fontSize="sm"
-          fontWeight="md"
-          color="gray.700"
-          _dark={{
-            color: 'gray.50',
-          }}>
-          Country / Region
-        </FormLabel>
-        <Select                // Country part
-          id="country"
-          name="country"
-          autoComplete="country"
-          placeholder="Select option"
-          focusBorderColor="brand.400"
-          shadow="sm"
-          size="sm"
-          w="full"
-          rounded="md">
-          <option>United States</option>
-          <option>Canada</option>
-          <option>Mexico</option>
-        </Select>
-      </FormControl> */}
-       
-        {/* {colorcode.map((e)=>(
-           <Tags  colorScheme={e}/>
-        ))} */}
+     
      <FormControl mt="2%">
         <FormLabel htmlFor="email" fontWeight={'normal'}>
           *Blog Content:
         </FormLabel>
         {/* <Input id="email" type="email" /> */}
-        <Textarea></Textarea>
+        <Textarea
+        value={content} 
+                 onChange = {(e)=> setContent(e.target.value)}
+        ></Textarea>
         <FormHelperText>Currently Images are not supported.</FormHelperText>
       </FormControl>
     </>
@@ -144,6 +107,8 @@ const Form3 = () => {
          
             <Input
               type="tel"
+              value={website} 
+              onChange = {(e)=> setWebsite(e.target.value)}
               placeholder="www.example.com"
               focusBorderColor="brand.400"
               rounded="md"
@@ -183,6 +148,10 @@ export default function multistep() {
   const toast = useToast();
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(33.33);
+  const [title,setTitle] = useState('')
+  const [intro,setIntro] = useState('')
+  const [content, setContent]= useState('')
+  const [website, setWebsite]= useState('')
   return (
     <>
       <Box
@@ -236,15 +205,18 @@ export default function multistep() {
                 w="7rem"
                 colorScheme="red"
                 variant="solid"
-                onClick={() => {
-                  toast({
-                    title: 'Blog created.',
-                    description: "You're Blog has been created.",
-                    status: 'success',
-                    duration: 3000,
-                    isClosable: true,
-                  });
-                }}>
+                onClick = {handleSubmit}
+                // onClick={() => {
+        
+                //   toast({
+                //     title: 'Blog created.',
+                //     description: "You're Blog has been created.",
+                //     status: 'success',
+                //     duration: 3000,
+                //     isClosable: true,
+                //   });
+                // }}
+                >
                 Submit
               </Button>
             ) : null}
