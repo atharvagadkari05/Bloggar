@@ -204,7 +204,7 @@ export default function multistep() {
                 w="7rem"
                 colorScheme="red"
                 variant="solid"
-                onClick = {handleSubmit}
+               
                 // onClick={() => {
         
                 //   toast({
