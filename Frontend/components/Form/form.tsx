@@ -44,8 +44,8 @@ const Form1 = () => {
           <FormLabel htmlFor="Title" fontWeight={'normal'}>
             *Title
           </FormLabel>
-          <Input value={title} 
-                 onChange = {(e)=> setTitle(e.target.value)}
+          <Input 
+                
                  id="first-name" placeholder="Enter Title" />
         </FormControl>
 
@@ -54,9 +54,9 @@ const Form1 = () => {
         <FormLabel htmlFor="email" fontWeight={'normal'}>
           *Introduction to the Blog
         </FormLabel>
-        {/* <Input id="email" type="email" /> */}
-        <Textarea value={intro} 
-                 onChange = {(e)=> setIntro(e.target.value)}></Textarea>
+       
+        <Textarea 
+                ></Textarea>
         <FormHelperText>btw It's a resizable text box.</FormHelperText>
       </FormControl>
 
@@ -77,8 +77,7 @@ const Form2 = () => {
         </FormLabel>
         {/* <Input id="email" type="email" /> */}
         <Textarea
-        value={content} 
-                 onChange = {(e)=> setContent(e.target.value)}
+   
         ></Textarea>
         <FormHelperText>Currently Images are not supported.</FormHelperText>
       </FormControl>
@@ -108,7 +107,7 @@ const Form3 = () => {
             <Input
               type="tel"
               value={website} 
-              onChange = {(e)=> setWebsite(e.target.value)}
+             
               placeholder="www.example.com"
               focusBorderColor="brand.400"
               rounded="md"
@@ -148,10 +147,10 @@ export default function multistep() {
   const toast = useToast();
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(33.33);
-  const [title,setTitle] = useState('')
-  const [intro,setIntro] = useState('')
-  const [content, setContent]= useState('')
-  const [website, setWebsite]= useState('')
+  // const [title,setTitle] = useState('')
+  // const [intro,setIntro] = useState('')
+  // const [content, setContent]= useState('')
+  // const [website, setWebsite]= useState('')
   return (
     <>
       <Box

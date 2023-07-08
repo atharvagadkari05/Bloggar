@@ -10,14 +10,15 @@ import "firebase/firestore"
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC_Q0Vr2lGjCCgljVUDDWuao3e1TMEKZTY",
-  authDomain: "bloggar-a8526.firebaseapp.com",
-  projectId: "bloggar-a8526",
-  storageBucket: "bloggar-a8526.appspot.com",
-  messagingSenderId: "475453038094",
-  appId: "1:475453038094:web:0df05a872625c6b46e265f",
-  measurementId: "G-KKZ9T64JFK"
+  apiKey: `${process.env.NEXT_PUBLIC_API_KEY}`,
+  authDomain:`${process.env.NEXT_PUBLIC_AUTH_DOMAIN}` ,
+  projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
+  storageBucket: `${process.env.NEXT_PUBLIC_STORAGE_BUCKET}`,
+  messagingSenderId: `${process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID}`,
+  appId:`${process.env.NEXT_PUBLIC_APP_ID}`,
+  measurementId: `${process.env.NEXT_PUBLIC_MEASUREMENT_ID}`
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
