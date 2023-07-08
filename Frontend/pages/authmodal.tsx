@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 
 import { useRecoilState, useRecoilValue } from "recoil";
-import { authstatemodalAtom } from "../chakra/atoms/authmodalGlobalatom";
+// import { authstatemodalAtom } from "../chakra/atoms/authmodalGlobalatom";
 import { account } from "../services/appwriteconfig";
 import { ID } from "appwrite";
 
