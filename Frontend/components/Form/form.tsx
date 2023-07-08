@@ -106,7 +106,7 @@ const Form3 = () => {
          
             <Input
               type="tel"
-              value={website} 
+             
              
               placeholder="www.example.com"
               focusBorderColor="brand.400"
