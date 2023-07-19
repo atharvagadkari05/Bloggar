@@ -17,7 +17,7 @@ import {
 
 import { useRecoilState, useRecoilValue } from "recoil";
 // import { authstatemodalAtom } from "../chakra/atoms/authmodalGlobalatom";
-import { account } from "../services/appwriteconfig";
+
 import { ID } from "appwrite";
 
 // Function Starts |
