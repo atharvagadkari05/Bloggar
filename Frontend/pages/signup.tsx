@@ -25,16 +25,6 @@ import { withPublic } from "../hooks/route";
  function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
-  //@ts-ignore
-  // const signInwithGoogle = async () => {
-  //   const { user } = await signInWithPopup(auth, provider);
-  //   const { refreshToken, providerData } = user;
-
-  //   localStorage.setItem("user", JSON.stringify(providerData));
-  //   localStorage.setItem("accessToken", JSON.stringify(refreshToken));
-
-  //   router.push("/dashboard/profile");
-  // };
   const {user , loginWithGoogle ,error} = useAuth()
 
   return (
