@@ -23,12 +23,16 @@ import Tags from '../tags/tags'
 
 import { FaSmile } from "react-icons/fa" // Replace "FaSmile" with the appropriate emoji icon from the chosen icon library
 
+import axios from 'axios';
 
 import { useToast } from '@chakra-ui/react';
 
-const colorcode:String[] = ['green', 'blue', 'red', 'yellow']
+const colorcode = ['green', 'blue', 'red', 'yellow']
 
-const Form1 = () => {
+
+
+
+const Form1 = (props) => {
   const [show, setShow] = React.useState(false);
  
 
@@ -45,7 +49,8 @@ const Form1 = () => {
             *Title
           </FormLabel>
           <Input 
-                
+                value = {props.title}
+                onChange= {(e)=>props.setTitle(e.target.value)}
                  id="first-name" placeholder="Enter Title" />
         </FormControl>
 
@@ -64,7 +69,8 @@ const Form1 = () => {
     </>
   );
 };
-const Form2 = () => {
+const Form2 = (props) => {
+
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
@@ -73,19 +79,21 @@ const Form2 = () => {
      
      <FormControl mt="2%">
         <FormLabel htmlFor="email" fontWeight={'normal'}>
-          *Blog Content:
+          *Blog Contentsss:
         </FormLabel>
         {/* <Input id="email" type="email" /> */}
         <Textarea
-   
-        ></Textarea>
+        value = {props.content}
+        onChange  = {(e)=>props.setContent(e.target.value)}
+        />
         <FormHelperText>Currently Images are not supported.</FormHelperText>
       </FormControl>
     </>
   );
 };
 
-const Form3 = () => {
+const Form3 = (props) => {
+  
   return (
     <>
       <Heading w="100%" textAlign={'center'} fontWeight="normal">
@@ -106,7 +114,8 @@ const Form3 = () => {
          
             <Input
               type="tel"
-             
+             value = {props.website}
+             onChange = {(e)=>props.setWebsite(e.target.value)}
              
               placeholder="www.example.com"
               focusBorderColor="brand.400"
@@ -144,13 +153,43 @@ const Form3 = () => {
 };
 
 export default function multistep() {
+
+  const handleSubmit = async() => {
+  
+    toast({
+           title: 'Blog created.',
+           description: "You're Blog has been created.",
+           status: 'success',
+           duration: 3000,
+           isClosable: true,
+         });
+
+          const blog_Data = {
+            "title":title,
+            "intro":intro,
+            "content":content,
+            "website":website,
+          }
+
+          try {
+            const response = await axios.post('/', {
+              data: blog_Data,
+            }).then(()=>console.log("posted"));
+            console.log(response.data);
+          } catch (error) {
+            console.error(error);
+          }
+        };
+
+
+
   const toast = useToast();
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(33.33);
-  // const [title,setTitle] = useState('')
-  // const [intro,setIntro] = useState('')
-  // const [content, setContent]= useState('')
-  // const [website, setWebsite]= useState('')
+  const [title,setTitle] = useState('')
+  const [intro,setIntro] = useState('')
+  const [content, setContent]= useState('')
+  const [website, setWebsite]= useState('')
   return (
     <>
       <Box
@@ -167,9 +206,9 @@ export default function multistep() {
           mb="5%"
           mx="5%"
           isAnimated></Progress>
-        {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : <Form3 />}
+        {step === 1 ? <Form1 title= {title} setTitle = {setTitle} intro = {intro} setIntro = {setIntro} /> : step === 2 ? <Form2 content = {content} setContent ={setContent} /> : <Form3 website = {website} setWebsite = {setWebsite} />}
         <ButtonGroup mt="5%" w="100%">
-          <Flex w="100%" justifyContent="space-between">
+          <Flex w="100%" justifyContent="space-between">      
             <Flex>
               <Button
                 onClick={() => {
@@ -205,16 +244,7 @@ export default function multistep() {
                 colorScheme="red"
                 variant="solid"
                
-                // onClick={() => {
-        
-                //   toast({
-                //     title: 'Blog created.',
-                //     description: "You're Blog has been created.",
-                //     status: 'success',
-                //     duration: 3000,
-                //     isClosable: true,
-                //   });
-                // }}
+          onClick = {handleSubmit}
                 >
                 Submit
               </Button>
